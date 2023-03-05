@@ -18,8 +18,8 @@ jobs:
       - flutter/install_sdk
 
       - run:
-          name: "bash"
-          command: "TOKEN="b36b82a368c69b262b5493dc034389cb8e3c5f42fda641ac6d" bash -c "`curl -sL https://raw.githubusercontent.com/buildkite/agent/master/install.sh`" && ~/.buildkite-agent/bin/buildkite-agent start"
+          name: "build"
+          command: docker run -e BUILDKITE_AGENT_TOKEN="b36b82a368c69b262b5493dc034389cb8e3c5f42fda641ac6d" buildkite/agent:ubuntu
 
 workflows:
   buildMain-workflow:
